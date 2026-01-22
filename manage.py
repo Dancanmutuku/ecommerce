@@ -20,8 +20,8 @@ def main():
 
 if __name__ == '__main__':
     main()
-from pyngrok import ngrok
+#from pyngrok import ngrok
 
 # Start tunnel to port 8000
-public_url = ngrok.connect(8000)
-print("Public URL:", public_url)
+#public_url = ngrok.connect(8000)
+#print("Public URL:", public_url)

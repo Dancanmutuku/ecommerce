@@ -24,26 +24,31 @@ DEBUG = config("DEBUG", cast=bool)
 SECRET_KEY = 'django-insecure-d0o4bnuj2it#1ot8v0%8%^03zgj%==+1sve^da5w@%=!i+q-!m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 INSTALLED_APPS = [
-    'accounts'
-    'products'
-    'cart'
-    'payments'
-    'orders'
+    # Django default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Your apps
+    'apps.accounts.apps.AccountsConfig',
+    'apps.products.apps.ProductsConfig',
+    'apps.cart.apps.CartConfig',
+    'apps.orders.apps.OrdersConfig',
+    'apps.payments.apps.PaymentsConfig',
 ]
+
+
+
 INSTALLED_APPS += [
     "django.contrib.sites",
     "allauth",
@@ -63,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
